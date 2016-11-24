@@ -38,11 +38,13 @@ int main() {
     p = first;
     for (int j = 1; j <= n; j++) {
         for (int i = 1; i < m; i++, p = p->next) ;
-            m = p->password;
-            cout << p->num << " ";
-            p->num = p->next->num;
-            p->password = p->next->password;
-            p->next = p->next->next;
+        m = p->password;
+        cout << p->num << " ";
+        p->num = p->next->num;
+        p->password = p->next->password;
+        q = p->next;
+        p->next = p->next->next;
+        free(q);
     }
     cout << endl;
     return 0;
